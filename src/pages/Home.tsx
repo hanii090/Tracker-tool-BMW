@@ -1,7 +1,8 @@
 import { Img, Line, Button, Text } from "components";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 const Home = () => {
+  const [searchValue, setSearchValue] = useState('')
   return (
     <>
     <div className="bg-white-A700 flex flex-col font-ubuntu sm:gap-10 md:gap-10 gap-[100px] items-center justify-start mx-auto p-[30px] sm:px-5 w-full">
@@ -106,12 +107,31 @@ const Home = () => {
             Track your NFT history
           </Text>
           <div className="bg-gray-100 flex flex-row sm:gap-10 items-center justify-between p-[5px] w-full">
-            <Text
-              className="ml-[15px] text-black-900 text-lg"
-              size="txtUbuntuRegular18"
+          <div className="relative w-full mb-4">
+            <input
+              aria-label="Enter Serial Number"
+              type="text"
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Enter Serial Number"
+              className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-200 rounded-md dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:text-gray-100"
+            />
+            <svg
+              className="absolute w-5 h-5 text-gray-400 right-3 top-3 dark:text-gray-300"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              Enter Serial Number
-            </Text>
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+              
+        
             <Button
               className="!text-black-900 border border-black-900 border-solid cursor-pointer font-medium leading-[normal] min-w-[145px] text-center text-lg"
               shape="square"
